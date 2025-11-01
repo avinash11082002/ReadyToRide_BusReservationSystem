@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: anuragtarzen-api
+    env: java
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -Dspring.profiles.active=prod -jar target/ReadyToRide-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: PORT
+        value: 8080
