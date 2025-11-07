@@ -1,4 +1,6 @@
-FROM openjdk:17-jdk-slim
+# Use a stable, maintained JDK image. `openjdk:17-jdk-slim` tag may be removed from Docker Hub.
+# The Eclipse Temurin images are official community builds and are a good replacement.
+FROM eclipse-temurin:17-jdk-jammy
 
 WORKDIR /app
 
