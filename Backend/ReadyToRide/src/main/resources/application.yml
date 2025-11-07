@@ -1,10 +1,18 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: rajmal
-    url: jdbc:mysql://localhost:3306/bus_reservation_database
-    username: root
+    url: ${DATABASE_URL:jdbc:mysql://shuttle.proxy.rlwy.net:36275/railway?useSSL=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:EFYFHNPwXFJdWPPXheLdIdNrMglehuag}
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:prod}
+server:
+  port: ${PORT:8080}

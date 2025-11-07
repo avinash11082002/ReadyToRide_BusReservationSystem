@@ -1,0 +1,5 @@
+#!/bin/bash
+# Wrapper script that uses project-specific settings.xml to bypass company Maven repositories
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec "$SCRIPT_DIR/mvnw" -s "$SCRIPT_DIR/.mvn/settings.xml" "$@"
+
