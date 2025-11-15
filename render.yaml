@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: anuragtarzen-api
+    env: docker
+    dockerfilePath: ./Backend/ReadyToRide/Dockerfile
+    buildContext: ./Backend/ReadyToRide
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: PORT
+        value: 8080
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
